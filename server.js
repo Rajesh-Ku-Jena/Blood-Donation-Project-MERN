@@ -3,6 +3,7 @@ const dotenv= require('dotenv')
 const morgan= require('morgan')
 const colors= require('colors')
 const cors= require('cors')
+const connectDb = require('./config/db')
 
 dotenv.config()
 
@@ -12,9 +13,12 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(cors())
 
-
+connectDb();
 // routes 
 app.use('/api/v1/', require('./routes/testRoute'))
+
+
+
 
 const PORT=process.env.PORT
 app.listen(PORT, ()=>{
