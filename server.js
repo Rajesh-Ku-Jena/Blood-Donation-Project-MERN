@@ -16,6 +16,7 @@ app.use(cors())
 connectDb();
 // routes 
 app.use('/api/v1/', require('./routes/testRoute'))
+app.use('/api/v1/auth', require('./routes/authRoute'))
 
 
 
