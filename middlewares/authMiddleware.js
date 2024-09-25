@@ -10,7 +10,7 @@ module.exports= async(req, resp, next)=>{
                     message:'Auth failed'
                 })
             }else{
-                req.body.userId= decode.Id
+                req.body.userId= decode.userId
                 next();
             }
         })
@@ -18,7 +18,7 @@ module.exports= async(req, resp, next)=>{
         console.log(error);
         return resp.status(400).send({
             success: false,
-            message:'Invalid Authentication'
+            message:'Invalid Authentications'
         })
         
     }
