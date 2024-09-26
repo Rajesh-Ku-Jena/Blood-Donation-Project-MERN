@@ -18,7 +18,7 @@ module.exports= async(req, resp, next)=>{
         console.log(error);
         return resp.status(400).send({
             success: false,
-            message:'Invalid Authentications'
+            message:'Invalid Authentication'
         })
         
     }

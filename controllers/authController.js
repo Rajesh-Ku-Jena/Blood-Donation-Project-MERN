@@ -50,6 +50,12 @@ const loginController= async(req, resp)=>{
                 message: 'Email not exist'
             })
         }
+        if(exisiting.role !== req.body.role){
+            return resp.status(500).send({
+                success: false, 
+                message:'Role doesnot match'
+            })
+        }
         // compare password
         const comparePassword= await bcrypt.compare(req.body.password, exisiting.password)
         if(!comparePassword){

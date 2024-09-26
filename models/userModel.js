@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 
 const userSchema= new mongoose.Schema({
-    role:{type:String, required:[true, 'role is required'], enum:['admin', 'organisation', 'user', 'hospital']},
+    role:{type:String, required:[true, 'role is required'], enum:['admin', 'organisation', 'donar', 'hospital']},
     name:{type: String, required:function(){
         if(this.role === 'user' || this.role === 'admin'){
             return true
@@ -21,7 +21,7 @@ const userSchema= new mongoose.Schema({
         return false
     }},
     email: {type:String, required:[true,'email is require'], unique: true},
-    password: {type: String, required:[true, 'email is require']},
+    password: {type: String, required:[true, 'email is required']},
     website:{type:String},
     address:{type:String, required:[true, 'Address is required']},
     phone:{type:String, required:[true, 'Phone number is required']}
